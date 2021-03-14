@@ -1,10 +1,8 @@
 package zadanieZaliczeniowe1.pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddNewAddressSteps {
 
@@ -17,7 +15,7 @@ public class AddNewAddressSteps {
     public void NewAddressPage () {
         WebElement addressesButton = driver.findElement(By.xpath("//*[@id=\"addresses-link\"]/span"));
         addressesButton.click();
-        WebElement createNewAddressButton = driver.findElement(By.xpath("//*[@id=\"content\"]/div[5]/a/span"));
+        WebElement createNewAddressButton = driver.findElement(By.cssSelector("#content > div.addresses-footer > a > span"));
         createNewAddressButton.click();
     }
 
@@ -41,8 +39,8 @@ public class AddNewAddressSteps {
         saveButton.click();
     }
 
-//    public void confirmationText () {
-//        WebElement confirmation = driver.findElement(By.xpath("Then User sees \"Address successfully added!\""));
-//        Assert.assertEquals();
-//    }
+    public String confirmationSign () {
+        WebElement confirmationText = driver.findElement(By.xpath("//*[@id=\"notifications\"]/div/article/ul/li"));
+        return confirmationText.getText();
+    }
 }

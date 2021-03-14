@@ -2,7 +2,9 @@ package zadanieZaliczeniowe1.test;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import zadanieZaliczeniowe1.pages.AddNewAddressSteps;
@@ -41,7 +43,12 @@ public class AddNewAddress {
         addNewAddressSteps.clickSaveButton();
     }
 
-   // @Then('User sees "Address successfully added!"')
+    @Then("User sees \"Address successfully added!\"")
+
+    public void confirmation () {
+        AddNewAddressSteps addNewAddressSteps = new AddNewAddressSteps(driver);
+        Assert.assertEquals("Address successfully added!", addNewAddressSteps.confirmationSign());
+    }
 
 
 }
